@@ -2,6 +2,7 @@
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
 const app = express();
+const port = process.env.PORT || 5000;
 
 //den Datenbanknamen beschaffen
 const datenbankName = __dirname + "/daten/cd.db";
@@ -116,7 +117,7 @@ app.post("/bearbeiten/:id", function (request, response) {
   });
 });
 
-const server = app.listen(8080, function () {
+const server = app.listen(port, function () {
   console.log(
     "Der Server läuft auf " +
       server.address().address +
